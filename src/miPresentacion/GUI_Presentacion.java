@@ -4,7 +4,11 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
-
+/*
+ * this is my presentation
+ * @ 2040751 Juan Jose Viafara
+ * version 1.2.3 25/11/2021
+ */
 public class GUI_Presentacion extends JFrame {
     //atributos
     private JButton miFoto,miHobby, misExpectativas;
