@@ -5,6 +5,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class GUI_Presentacion extends JFrame {
     //atributos
@@ -40,16 +42,16 @@ public class GUI_Presentacion extends JFrame {
         this.add(panelDatos,BorderLayout.CENTER);
 
         miFoto= new JButton("Este soy yo");
-        miFoto.addActionListener(escucha);
+        miFoto.addMouseListener(escucha);
         miHobby= new JButton("Este es mi hobby");
-        miHobby.addActionListener(escucha);
-        misExpectativas= new JButton("Creo que");
-        misExpectativas.addActionListener(escucha);
+        miHobby.addMouseListener(escucha);
+        //misExpectativas= new JButton("Creo que");
+        //misExpectativas.addActionListener(escucha);
 
         panelBotones = new JPanel();
         panelBotones.add(miFoto);
         panelBotones.add(miHobby);
-        panelBotones.add(misExpectativas);
+        //panelBotones.add(misExpectativas);
 
         this.add(panelBotones,BorderLayout.SOUTH);
 
@@ -65,7 +67,7 @@ public class GUI_Presentacion extends JFrame {
         });
     }
 
-    private class Escucha implements ActionListener {
+    /*private class Escucha implements ActionListener {
         private ImageIcon image;
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -95,5 +97,54 @@ public class GUI_Presentacion extends JFrame {
             revalidate();
             repaint();
         }
-    }
+    }*/
+    /*
+    * this class is used to listen to muse and keyboard actions
+    * @ 2040751 Juan Jose Viafara
+    * version 1.2.1 25/11/2021
+    */
+  private class Escucha implements MouseListener  {
+      private ImageIcon image;
+
+      @Override
+      public void mouseClicked(MouseEvent e) {
+          panelDatos.removeAll();
+          if (e.getSource() == miFoto){
+              image = new ImageIcon(getClass().getResource("/recursos/yoImag.jpg"));
+              labelImagen.setIcon(image);
+              panelDatos.add(labelImagen);
+          }else{
+              if (e.getSource() == miHobby){
+                  if(e.getClickCount() == 2){
+                      image = new ImageIcon(getClass().getResource("/recursos/hobby.jpg"));
+                      labelImagen.setIcon(image);
+                      panelDatos.add(labelImagen);
+                  }
+              }
+          }
+          revalidate();
+          repaint();
+      }
+
+      @Override
+      public void mousePressed(MouseEvent e) {
+
+      }
+
+      @Override
+      public void mouseReleased(MouseEvent e) {
+
+      }
+
+      @Override
+      public void mouseEntered(MouseEvent e) {
+
+      }
+
+      @Override
+      public void mouseExited(MouseEvent e) {
+
+      }
+
+  }
 }
