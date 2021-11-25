@@ -99,11 +99,11 @@ public class GUI_Presentacion extends JFrame {
         }
     }*/
     /*
-    * this class is used to listen to muse and keyboard actions
+    * this class is used to listen to mouse and keyboard actions
     * @ 2040751 Juan Jose Viafara
     * version 1.2.1 25/11/2021
     */
-  private class Escucha implements MouseListener  {
+    private class Escucha implements MouseListener{
       private ImageIcon image;
 
       @Override
