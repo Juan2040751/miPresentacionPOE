@@ -3,10 +3,7 @@ package miPresentacion;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class GUI_Presentacion extends JFrame {
     //atributos
@@ -45,13 +42,14 @@ public class GUI_Presentacion extends JFrame {
         miFoto.addMouseListener(escucha);
         miHobby= new JButton("Este es mi hobby");
         miHobby.addMouseListener(escucha);
-        //misExpectativas= new JButton("Creo que");
-        //misExpectativas.addActionListener(escucha);
+        misExpectativas= new JButton("Creo que");
+        misExpectativas.addKeyListener(escucha);
+        misExpectativas.setFocusable(true);
 
         panelBotones = new JPanel();
         panelBotones.add(miFoto);
         panelBotones.add(miHobby);
-        //panelBotones.add(misExpectativas);
+        panelBotones.add(misExpectativas);
 
         this.add(panelBotones,BorderLayout.SOUTH);
 
@@ -103,7 +101,7 @@ public class GUI_Presentacion extends JFrame {
     * @ 2040751 Juan Jose Viafara
     * version 1.2.1 25/11/2021
     */
-    private class Escucha implements MouseListener{
+    private class Escucha implements MouseListener, KeyListener {
       private ImageIcon image;
 
       @Override
@@ -146,5 +144,33 @@ public class GUI_Presentacion extends JFrame {
 
       }
 
-  }
+        @Override
+        public void keyTyped(KeyEvent e) {
+            panelDatos.removeAll();
+            if(e.getSource() ==misExpectativas){
+                if(e.getKeyChar()== 'm' ){
+                    textoExpectativas.setText("Actualmente no se programar orientado eventos. \n"+
+                            "aunque es algo que me llama mucho la atencion, sobretodo lo que tiene UI.\n" +
+                            "Disfrutare esta asignatura, espero aprender mucho.");
+                    textoExpectativas.setBackground(Color.GRAY);
+                    textoExpectativas.setForeground(Color.WHITE);
+                    textoExpectativas.setFont(new Font(Font.DIALOG,Font.ITALIC,16));
+                    textoExpectativas.setOpaque(true);
+                    panelDatos.add(textoExpectativas);
+                }
+            }
+            revalidate();
+            repaint();
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
+        }
+    }
 }
