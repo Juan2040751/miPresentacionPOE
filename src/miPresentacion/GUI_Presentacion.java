@@ -65,43 +65,13 @@ public class GUI_Presentacion extends JFrame {
         });
     }
 
-    /*private class Escucha implements ActionListener {
-        private ImageIcon image;
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            panelDatos.removeAll();
-            if (e.getSource() == miFoto) {
-                image = new ImageIcon(getClass().getResource("/recursos/yoImag.jpg"));
-                labelImagen.setIcon(image);
-                panelDatos.add(labelImagen);
-            }else{
-                if(e.getSource() == miHobby){
-                    image = new ImageIcon(getClass().getResource("/recursos/hobby.jpg"));
-                    labelImagen.setIcon(image);
-                    panelDatos.add(labelImagen);
-                }else{
-                    if(e.getSource() ==misExpectativas){
-                        textoExpectativas.setText("Actualmente no se programar orientado eventos. \n"+
-                                                  "aunque es algo que me llama mucho la atencion, sobretodo lo que tiene UI.\n" +
-                                                  "Disfrutare esta asignatura, espero aprender mucho.");
-                        textoExpectativas.setBackground(Color.GRAY);
-                        textoExpectativas.setForeground(Color.WHITE);
-                        textoExpectativas.setFont(new Font(Font.DIALOG,Font.ITALIC,16));
-                        textoExpectativas.setOpaque(true);
-                        panelDatos.add(textoExpectativas);
-                    }
-                }
-            }
-            revalidate();
-            repaint();
-        }
-    }*/
+
     /*
     * this class is used to listen to mouse and keyboard actions
     * @ 2040751 Juan Jose Viafara
     * version 1.2.1 25/11/2021
     */
-    private class Escucha implements MouseListener, KeyListener {
+      private class Escucha implements MouseListener, KeyListener {
       private ImageIcon image;
 
       @Override
